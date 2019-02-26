@@ -1,0 +1,70 @@
+﻿@model IEnumerable<iiii.Models.booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Booking lists</h2>
+
+
+<table class="table">
+    @Html.ActionLink("Back to List", "Index", "restaurants", null, new { @class = "btn btn-default" })
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.useremail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userphone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dayselect)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.selecttime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.restaurant.Restaurant_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.RestaurantName)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.useremail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dayselect)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.selecttime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.restaurant.Restaurant_name)
+            </td>
+            <td>
+               
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookingID })
+            </td>
+        </tr>
+    }
+
+</table>
+<div style="height:400px;">
+</div>

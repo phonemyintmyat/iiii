@@ -1,0 +1,82 @@
+﻿@model iiii.Models.restaurant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>restaurant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_about)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_about)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Restaurant_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Restaurant_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpenTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpenTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.closetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.closetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Restaurant_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

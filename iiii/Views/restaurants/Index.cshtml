@@ -1,0 +1,173 @@
+﻿@model IEnumerable<iiii.Models.restaurant>
+
+@{
+    ViewBag.Title = "list";
+
+}
+
+<h2>Restaurant Lists</h2>
+
+<table class="table" border="0" style="width:45%;">
+    @foreach (var item in Model)
+    {
+        if (item.Restaurant_id == 1 || item.Restaurant_id == 3 || item.Restaurant_id == 5)
+        {
+            <tr>
+                <td style="border-top-color:black;border-top-width:3px;">
+                    ID
+                </td>
+                <td style="border-top-color:black;border-top-width:3px;">
+                    @Html.DisplayFor(modelItem => item.Restaurant_id)
+                </td>
+                <td width="140" align="center" rowspan="3" style="border-top-color:black;border-top-width:3px;">
+                    <img src="~/images/@Url.Content(item.image1)" height="150" width="180" />
+                    <br />
+                    <input type="button" value="Menu" id="btn1" style="margin-top:5px;border-radius:1px;" onclick="location.href='@Url.Action("Index", "menus", new { id = item.Restaurant_id, resname = item.Restaurant_name })'" />
+                    <input type="button" value="Booking" id="btn1" style="margin-top:5px;border-radius:1px;" onclick="location.href='@Url.Action("Create", "bookings", new { id = item.Restaurant_id })'" />
+                    <input type="button" value="Direction" id="btn1" style="margin-top:5px;border-radius:1px;" onclick="location.href='@Url.Action("map", "Map",new {rid=item.Restaurant_id})'" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant_name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Type
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant_type)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Location
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant_address)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    About
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant_about)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Contact
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant_phone)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Open
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpenTime)
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-bottom:50px;">
+                    Close
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.closetime)
+                </td>
+            </tr>
+        }
+    }
+</table>
+<table class="table" border="0" align="right" style="width:49%;margin-top:-130%;">
+    @foreach (var item in Model)
+    {
+        if (item.Restaurant_id == 2 || item.Restaurant_id == 4 || item.Restaurant_id == 6)
+        {
+            <tr>
+                <td style="border-top-color:black;border-top-width:3px;">
+                    ID
+                </td>
+                <td style="border-top-color:black;border-top-width:3px;">
+                    @Html.DisplayFor(modelItem => item.Restaurant_id)
+                </td>
+                <td width="140" align="center" rowspan="3" style="border-top-color:black;border-top-width:3px;">
+                    <img src="~/images/@Url.Content(item.image1)" height="150" width="180" />
+                    <br />
+                    <input type="button" value="Menu" id="btn1" style="margin-top:5px;border-radius:1px;" onclick="location.href='@Url.Action("Index", "menus", new { id = item.Restaurant_id, resname = item.Restaurant_name })'" />
+                    <input type="button" value="Booking" id="btn1" style="margin-top:5px;border-radius:1px;" onclick="location.href='@Url.Action("Create", "bookings",new { id = item.Restaurant_id})'" />
+                    <input type="button" value="Direction" id="btn1" style="margin-top:5px;border-radius:1px;" onclick="location.href='@Url.Action("map", "Map",new {rid=item.Restaurant_id})'" />
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    Name
+                </td>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    @Html.DisplayFor(modelItem => item.Restaurant_name)
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    Type
+                </td>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    @Html.DisplayFor(modelItem => item.Restaurant_type)
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    Location
+                </td>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    @Html.DisplayFor(modelItem => item.Restaurant_address)
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    About
+                </td>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    @Html.DisplayFor(modelItem => item.Restaurant_about)
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    Contact
+                </td>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    @Html.DisplayFor(modelItem => item.Restaurant_phone)
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border-top-color:black;border-top-width:2px;"> 
+                    Open
+                </td>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    @Html.DisplayFor(modelItem => item.OpenTime)
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-bottom:50px;border-top-color:black;border-top-width:2px;">
+                    Close
+                </td>
+                <td style="border-top-color:black;border-top-width:2px;">
+                    @Html.DisplayFor(modelItem => item.closetime)
+                </td>
+            </tr>
+        }
+    }
+</table>

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "videos";
+}
+
+<h2>Videos Receips</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @*<input type="text" id="txtUrl" style="width: 300px;visibility:hidden;" />*@
+    @*<input type="button" id="btnPlay" value="Play" style="visibility:hidden;" />*@
+    <hr />
+    <iframe id="video" width="550" height="400" frameborder="1" style="display:none;text-align:center;"></iframe>
+    <iframe id="video2" width="550" align="right" height="400" frameborder="1" style="display:none"></iframe><br /><br />
+    <iframe id="video3" width="550" align="left" height="400" frameborder="1" style="display:none"></iframe>
+    <iframe id="video4" width="550" align="right" height="400" frameborder="1" style="display:none"></iframe><br /><br />
+    <iframe id="video5" width="550" align="left" height="400" frameborder="1" style="display:none;margin-top:20px;"></iframe>
+    <iframe id="video6" width="550" align="right" height="400" frameborder="1" style="display:none;margin-top:20px;"></iframe>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = "3IL25IDJ3HA";
+            var url2 = "sbr-SAi6PHM";
+            var url3 = "4ORX5NBvUTk";
+            var url4 = "Lw7EixBGu60";
+            var url5 = "uwGi84-zc5I";
+            var url6 = "bjmYkPkjnVo";
+            //jQuery('#btnPlay').click();
+            $("#video")[0].src = "//www.youtube.com/embed/" +url;
+            $("#video").show();
+            $("#video2")[0].src = "//www.youtube.com/embed/" + url2;
+            $("#video2").show();
+            $("#video3")[0].src = "//www.youtube.com/embed/" + url3;
+            $("#video3").show();
+            $("#video4")[0].src = "//www.youtube.com/embed/" + url4;
+            $("#video4").show();
+            $("#video5")[0].src = "//www.youtube.com/embed/" + url5;
+            $("#video5").show();
+            $("#video6")[0].src = "//www.youtube.com/embed/" + url6;
+            $("#video6").show();
+        });
+    </script>
+</body>
+</html>
+

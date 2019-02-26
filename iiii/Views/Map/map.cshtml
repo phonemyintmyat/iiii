@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "map";
+}
+<meta charset='utf-8' />
+<title></title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        position: absolute;
+        top: 40px;
+        bottom: 40px;
+        width: 85%;
+    }
+
+    .marker {
+        background-image: url(../../images/mapbox-icon.png);
+        background-size: contain;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .mapboxgl-popup {
+        max-width: 500px;
+    }
+
+    .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+    }
+</style>
+
+
+
+    <div id='map'></div>
+
+    <script>
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGhvbmVteWludG15YXQiLCJhIjoiY2pzNjZsOTd4MDRqeTN5b2tqanl3Zjh0MyJ9.FlMobSQvSsfdQqM3ao1C-w';
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            center: [96.1580, 16.8143],
+            zoom: 11
+        });
+
+        // code from the next step will go here!
+        var geojson = {
+            type: 'FeatureCollection',
+            features: [{
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [96.069682, 16.863076]
+                },
+                properties: {
+                    title: 'KFC Superone Hlaingtharyar',
+                    id:1
+                }
+            },
+            {
+                type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.135232, 16.902602]
+                    },
+                    properties: {
+                        title: 'KFC Yangon International Airport',
+                        id: 1
+                        
+                    }
+                },
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.202442, 16.841000]
+                    },
+                    properties: {
+                        title: 'KFC Thingangyun Tsp',
+                        id: 1
+                    }
+                },
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.202442, 16.901210]
+                    },
+                    properties: {
+                        title: 'KFC Thingangyun Tsp',
+                        id: 1
+                    }
+                },
+
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.166374, 16.916155]
+                    },
+                    properties: {
+                        title: 'KFC Kantharyar park',
+                        id: 1
+                    }
+                },
+
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.166374, 16.916900]
+                    },
+                    properties: {
+                        title: '999 shan',
+                        id: 2
+                    }
+                },
+
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.166374, 16.616900]
+                    },
+                    properties: {
+                        title: 'Lotteria',
+                        id: 3
+                    }
+                },
+
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.166374, 16.617800]
+                    },
+                    properties: {
+                        title: 'Feel Myanmar',
+                        id: 4
+                    }
+                },
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.166374, 16.717800]
+                    },
+                    properties: {
+                        title: 'Rangoon Tea house',
+                        id: 5
+                    }
+                },
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [96.166374, 16.817800]
+                    },
+                    properties: {
+                        title: 'Shan yoe yar',
+                        id: 6
+                    }
+                },
+            ]
+        };
+
+        var rid = @ViewBag.id;
+        // add markers to map
+        geojson.features.forEach(function (marker) {
+            if (marker.properties.id == rid) {
+                // create a HTML element for each feature
+                var el = document.createElement('div');
+                el.className = 'marker';
+                // make a marker for each feature and add to the map
+                new mapboxgl.Marker(el)
+                    .setLngLat(marker.geometry.coordinates)
+                    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                        .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+                    .addTo(map);
+
+            }
+        });
+
+    </script>
+    <div>
+        @Html.ActionLink("Back to List", "Index","restaurants")
+    </div>
+<div style="height:600px;">
+</div>
+
+

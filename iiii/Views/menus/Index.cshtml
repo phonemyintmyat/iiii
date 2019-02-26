@@ -1,0 +1,56 @@
+﻿@model IEnumerable<iiii.Models.menu>
+
+@{
+    ViewBag.Title = "menus";
+}
+<center>
+    <h2>Menus</h2>
+    <br />
+    <h3>@ViewBag.resname</h3>
+</center>
+
+
+
+<table class="table" border="0" align="center" style="width:50%;">
+    @foreach (var item in Model)
+    {
+        @*<tr>    
+            <td style="border-top-color:black;border-top-width:4px;">
+                Restaurant ID
+            </td>
+            <td style="border-top-color:black;border-top-width:4px;">
+                @Html.DisplayFor(modelItem => item.Restaurantid)
+            </td>
+            <td width="140" align="center" rowspan="3" style="border-top-color:black;border-top-width:4px;">
+                <img src="~/images/@Url.Content(item.Image_menu)" height="150" width="180" />
+
+            </td>
+        </tr>*@
+    <tr>
+        <td style="border-top-color:black;border-top-width:4px;">
+            Title
+        </td>
+        <td style="border-top-color:black;border-top-width:4px;">
+            @Html.DisplayFor(modelItem => item.Menu_name)
+        </td>
+        <td width="140" align="center" rowspan="2" style="border-top-color:black;border-top-width:4px;">
+            <img src="~/images/@Url.Content(item.Image_menu)" height="150" width="180" />
+
+        </td>
+    </tr>
+        <tr>
+            <td>
+                Price
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+        </tr>
+
+
+
+    }
+</table>
+@Html.ActionLink("Back to List", "Index", "restaurants",null, new {@class = "btn btn-default" })
+<div style="height:180px;">
+</div>

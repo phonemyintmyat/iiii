@@ -1,0 +1,42 @@
+﻿@model iiii.Models.menu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_menu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_menu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.restaurant.Restaurant_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.restaurant.Restaurant_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Menu_name }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
